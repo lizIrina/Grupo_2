@@ -16,6 +16,7 @@ class _CounterScreenState extends State<CounterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Counter Screen'), centerTitle: true),
       body: Center(child: Text('$clickCounter')),
       floatingActionButton: CustomButton(
         icon: Icons.plus_one,
