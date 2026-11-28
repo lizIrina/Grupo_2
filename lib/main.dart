@@ -1,4 +1,5 @@
 import 'package:material_ui/material_ui.dart';
+import 'package:contador_grupo2/Presentacion/config/app_theme.dart';
 import 'package:contador_grupo2/Presentacion/screens/counter_screen.dart';
 
 void main() {
@@ -10,9 +11,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CounterScreen(),
+      theme: AppTheme().getTheme(),
+      home: const CounterScreen(),
     );
   }
 }

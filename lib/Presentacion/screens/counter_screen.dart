@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:contador_grupo2/Presentacion/widgets/custom_button.dart';
 
 class CounterScreen extends StatefulWidget {
@@ -23,6 +23,7 @@ class _CounterScreenState extends State<CounterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Counter Screen'), centerTitle: true),
       body: Center(child: Text('$clickCounter')),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
