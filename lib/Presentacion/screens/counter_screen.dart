@@ -1,5 +1,5 @@
-import 'package:contador_grupo2/Presentacion/widgets/custom_button.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:contador_grupo2/Presentacion/widgets/custom_button.dart';
 
 class CounterScreen extends StatefulWidget {
   const CounterScreen({super.key});
@@ -13,15 +13,27 @@ class _CounterScreenState extends State<CounterScreen> {
 
   void _increase() => setState(() => clickCounter++);
 
+  void _decrease() {
+    if (clickCounter == 0) return;
+    setState(() => clickCounter--);
+  }
+
+  void _reset() => setState(() => clickCounter = 0);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Counter Screen'), centerTitle: true),
       body: Center(child: Text('$clickCounter')),
-      floatingActionButton: CustomButton(
-        icon: Icons.plus_one,
-        onPressed: _increase,
-        tooltip: 'Sumar',
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          CustomButton(icon: Icons.refresh_rounded, onPressed: _reset, tooltip: 'Reiniciar'),
+          const SizedBox(height: 10),
+          CustomButton(icon: Icons.exposure_minus_1_outlined, onPressed: _decrease, tooltip: 'Restar'),
+          const SizedBox(height: 10),
+          CustomButton(icon: Icons.plus_one, onPressed: _increase, tooltip: 'Sumar'),
+        ],
       ),
     );
   }
